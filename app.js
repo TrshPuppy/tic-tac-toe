@@ -22,35 +22,26 @@ function createPlayer(gamePiece) {
   };
 }
 
+function updateGameBoardArray(row, col) {
+  gameBoard[row][col] = playerPieceChoice;
+}
+
 function createBoard() {
   gameBoardUI.style.gridTemplateColumns = "repeat(3,1fr)";
   gameBoardUI.style.gridTemplateRows = "repeat(3,1fr)";
 
   for (let i = 0; i < 9; ++i) {
+    const arrayRowIndex = Math.trunc(i / 3);
+    const arrayColIndex = i % 3;
     gameTile = document.createElement("div");
-    gameTile.setAttribute(
-      "data-number",
-      `${Math.trunc(i / 3)},${i % 3}`
-      //   (gameBoard[Math.trunc(i / 3)][i % 3] = i);
-    );
+    gameTile.setAttribute("data-number", `${arrayRowIndex},${arrayColIndex}`);
     gameBoardUI.insertAdjacentElement("beforeend", gameTile);
+    gameTile.addEventListener("click", () => {
+      updateGameBoardArray(arrayRowIndex, arrayColIndex);
+      //   updateUI();
+    });
   }
-
-  //   for (let i = 0; i < 3; i++) {
-  //     for (let j = 0; j < 3; j++) {
-  //       gameTile = document.createElement("div");
-  //       gameTile.setAttribute("data-number", i);
-  //       gameBoardUI.insertAdjacentElement("beforeend", gameTile);
-  //       gameTile.addEventListener("click", () => {
-  //         updateGameBoardArray("game time data number");
-  //         updateUI();
-  //       });
-  //     }
-  //   }
 }
-
-// updateGameBoardArray("game tile data number"){
-// }
 
 // updateUI(){
 // }
