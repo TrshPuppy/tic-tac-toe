@@ -1,29 +1,30 @@
 // Globals:
-let gameBoard = [
-  ["", "", ""],
-  ["", "", ""],
-  ["", "", ""],
-];
-
+let gameboard;
 const gameBoardUI = document.querySelector(".game-board");
+let playerPieces;
 let gameTile;
+let isPlayerOnePlaying = 1;
 
-createBoard();
+refreshGame();
 
-let playerPieceChoice = prompt("choose a gamepiece");
+let playerStringChoice = prompt("Choose x or o");
 
-const player = createPlayer(playerPieceChoice);
-console.log(player);
+setPlayerPieces(playerStringChoice);
 
 // Functions:
-function createPlayer(gamePiece) {
-  return {
-    gamePiece: gamePiece,
-  };
+function setPlayerPieces(string) {
+  if (string === "x" || string === "X") {
+    return (playerPieces = "xo");
+  }
+  return (playerPieces = "ox");
 }
 
 function updateGameBoardArray(row, col) {
-  gameBoard[row][col] = playerPieceChoice;
+  gameBoard[row][col] = "x";
+}
+
+function updateBoardUI(row, col, tile) {
+  tile.innerText = "x";
 }
 
 function createBoard() {
@@ -38,10 +39,41 @@ function createBoard() {
     gameBoardUI.insertAdjacentElement("beforeend", gameTile);
     gameTile.addEventListener("click", () => {
       updateGameBoardArray(arrayRowIndex, arrayColIndex);
-      //   updateUI();
+      updateBoardUI(arrayRowIndex, arrayColIndex, gameTile);
     });
   }
 }
 
+function createNewBoardArray() {
+  return [
+    ["", "", ""],
+    ["", "", ""],
+    ["", "", ""],
+  ];
+}
+
+function refreshGame() {
+  isPlayerOnePlaying = 1;
+  playerPieces = "";
+
+  gameBoard = createNewBoardArray();
+
+  createBoard();
+}
+
 // updateUI(){
+// }
+
+//REFRESH GAMEBOARD PSEUDOCODE
+// button click =>
+// {
+//     function (refreshboard)
+// }
+
+// function refreshboard
+// {
+//     create new gameBoard
+//      reset player pice choice
+//      reset gameboard array
+
 // }
