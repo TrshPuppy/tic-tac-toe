@@ -3,7 +3,7 @@ let gameboard;
 const gameBoardUI = document.querySelector(".game-board");
 let playerPieces;
 let gameTile;
-let isPlayerOnePlaying = 1;
+let turnNumber = 1;
 
 refreshGame();
 
@@ -20,11 +20,11 @@ function setPlayerPieces(string) {
 }
 
 function updateGameBoardArray(row, col) {
-  gameBoard[row][col] = "x";
+  gameBoard[row][col] = playerPieces[turnNumber & 1];
 }
 
-function updateBoardUI(row, col, tile) {
-  tile.innerText = "x";
+function updateBoardUI(e) {
+  e.target.innerText = playerPieces[turnNumber & 1];
 }
 
 function createBoard() {
@@ -37,9 +37,10 @@ function createBoard() {
     gameTile = document.createElement("div");
     gameTile.setAttribute("data-number", `${arrayRowIndex},${arrayColIndex}`);
     gameBoardUI.insertAdjacentElement("beforeend", gameTile);
-    gameTile.addEventListener("click", () => {
+    gameTile.addEventListener("click", (e) => {
       updateGameBoardArray(arrayRowIndex, arrayColIndex);
-      updateBoardUI(arrayRowIndex, arrayColIndex, gameTile);
+      updateBoardUI(e);
+      changeTurns();
     });
   }
 }
@@ -53,12 +54,16 @@ function createNewBoardArray() {
 }
 
 function refreshGame() {
-  isPlayerOnePlaying = 1;
+  turnNumber = 0;
   playerPieces = "";
 
   gameBoard = createNewBoardArray();
 
   createBoard();
+}
+
+function changeTurns() {
+  turnNumber += 1;
 }
 
 // updateUI(){
