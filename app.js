@@ -20,7 +20,11 @@ function setPlayerPieces(string) {
 }
 
 function updateGameBoardArray(row, col) {
+  if (gameBoard[row][col] !== "") {
+    return false;
+  }
   gameBoard[row][col] = playerPieces[turnNumber & 1];
+  return true;
 }
 
 function updateBoardUI(e) {
@@ -38,9 +42,14 @@ function createBoard() {
     gameTile.setAttribute("data-number", `${arrayRowIndex},${arrayColIndex}`);
     gameBoardUI.insertAdjacentElement("beforeend", gameTile);
     gameTile.addEventListener("click", (e) => {
-      updateGameBoardArray(arrayRowIndex, arrayColIndex);
-      updateBoardUI(e);
-      changeTurns();
+      if (updateGameBoardArray(arrayRowIndex, arrayColIndex)) {
+        updateBoardUI(e);
+        if (!checkForWin(gameBoard)) {
+          changeTurns();
+        } else {
+          console.log("win!");
+        }
+      }
     });
   }
 }
@@ -66,19 +75,38 @@ function changeTurns() {
   turnNumber += 1;
 }
 
-// updateUI(){
-// }
+function checkForWin(gameBoard) {
+  // Row
+  for (let row = 0; row < 3; row++) {
+    if (checkPointAgainstDelta(row, 0, 0, 1)) {
+      return true;
+    }
+  }
+  // Col
+  for (let col = 0; col < 3; col++) {
+    if (checkPointAgainstDelta(0, col, 1, 0)) {
+      return true;
+    }
+  }
+  //Diagonals
+  if (
+    checkPointAgainstDelta(0, 0, 1, 1) ||
+    checkPointAgainstDelta(0, 2, 1, -1)
+  ) {
+    return true;
+  }
 
-//REFRESH GAMEBOARD PSEUDOCODE
-// button click =>
-// {
-//     function (refreshboard)
-// }
-
-// function refreshboard
-// {
-//     create new gameBoard
-//      reset player pice choice
-//      reset gameboard array
-
-// }
+  function checkPointAgainstDelta(pointY, pointX, deltaY, deltaX) {
+    const startingCellValue = gameBoard[pointY][pointX];
+    if (startingCellValue !== "") {
+      if (
+        gameBoard[pointY + deltaY][pointX + deltaX] === startingCellValue &&
+        gameBoard[pointY + deltaY * 2][pointX + deltaX * 2] ===
+          startingCellValue
+      ) {
+        return true;
+      }
+    }
+    return false;
+  }
+}
