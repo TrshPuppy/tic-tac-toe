@@ -1,5 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata&family=Press+Start+2P&family=Trispace&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  --gameboard-dims: clamp(200px, 80vw, 600px);
+  --main-font: "Press Start 2P";
+
+  background: linear-gradient(120deg, pink, blue);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: white;
+}
+
+.title {
+  text-align: center;
+  font-family: var(--main-font);
+  padding: 5vh 0vh;
+  font-size: 1.5rem;
+}
+.player-turn {
+  font-family: var(--main-font);
+  font-size: 1rem;
+  text-align: center;
+  line-height: 25px;
+}
 .game-board {
   display: grid;
-  width: 500px;
-  height: 500px;
+  width: var(--gameboard-dims);
+  height: var(--gameboard-dims);
+  margin: 0 auto;
+  padding-top: 5vh;
+}
+
+.game-tile {
+  /* width: clamp(100px, 20vw, 150px);
+  height: clamp(100px, 40vw, 200px); */
+  border: 1px solid black;
+  text-align: center;
+  padding: 25%;
+  font-family: var(--main-font);
+  font-size: clamp(20px, 5vw, 5rem);
 }

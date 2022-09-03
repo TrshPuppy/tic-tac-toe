@@ -7,7 +7,8 @@ let turnNumber = 1;
 
 refreshGame();
 
-let playerStringChoice = prompt("Choose x or o");
+//let playerStringChoice = prompt("Choose x or o");
+let playerStringChoice = "x";
 
 setPlayerPieces(playerStringChoice);
 
@@ -39,6 +40,7 @@ function createBoard() {
     const arrayRowIndex = Math.trunc(i / 3);
     const arrayColIndex = i % 3;
     gameTile = document.createElement("div");
+    gameTile.classList.add("game-tile");
     gameTile.setAttribute("data-number", `${arrayRowIndex},${arrayColIndex}`);
     gameBoardUI.insertAdjacentElement("beforeend", gameTile);
     gameTile.addEventListener("click", (e) => {
