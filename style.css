@@ -24,6 +24,13 @@ body {
   height: 100vh;
   background-color: var(--modal-actual-bg);
 }
+.modal-close {
+  align-self: flex-end;
+}
+.modal-close:hover {
+  color: black;
+  cursor: pointer;
+}
 .modal-content {
   display: flex;
   flex-direction: column;
@@ -41,10 +48,17 @@ body {
   color: slategray;
   padding: 10px;
 }
+button {
+  padding: 5px;
+  font-family: var(--main-font);
+  background-color: blue;
+  color: white;
+}
+.modal-gamepiece {
+}
 
 .title {
   text-align: center;
-
   padding: 5vh 0vh;
   font-size: 1.5rem;
 }

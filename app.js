@@ -4,6 +4,8 @@ const gameBoardUI = document.querySelector(".game-board");
 let playerPieces;
 let gameTile;
 let turnNumber = 1;
+let modalClose = document.querySelector(".modal-close");
+let modalActual = document.querySelector(".modal");
 
 refreshGame();
 
@@ -112,3 +114,8 @@ function checkForWin(gameBoard) {
     return false;
   }
 }
+
+// Event Liosteners:
+modalClose.addEventListener("click", () => {
+  modalActual.style.display = "none";
+});
