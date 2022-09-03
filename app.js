@@ -7,7 +7,7 @@ let turnNumber = 1;
 
 refreshGame();
 
-//let playerStringChoice = prompt("Choose x or o");
+// let playerStringChoice = prompt("Choose x or o");
 let playerStringChoice = "x";
 
 setPlayerPieces(playerStringChoice);

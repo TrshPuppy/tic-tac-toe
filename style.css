@@ -7,21 +7,48 @@
 body {
   --gameboard-dims: clamp(200px, 80vw, 600px);
   --main-font: "Press Start 2P";
+  --modal-actual-bg: rgba(228, 228, 249, 0.6);
 
   background: linear-gradient(120deg, pink, blue);
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: white;
+  font-family: var(--main-font);
+}
+
+.modal {
+  display: block;
+  z-index: 1;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--modal-actual-bg);
+}
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: pink;
+  width: 300px;
+  position: fixed;
+  top: 25vh;
+  left: calc(50vw - 150px);
+  border: 2px solid black;
+  border-radius: 5px;
+  z-index: 2;
+  text-align: center;
+  color: slategray;
+  padding: 10px;
 }
 
 .title {
   text-align: center;
-  font-family: var(--main-font);
+
   padding: 5vh 0vh;
   font-size: 1.5rem;
 }
 .player-turn {
-  font-family: var(--main-font);
   font-size: 1rem;
   text-align: center;
   line-height: 25px;
@@ -40,6 +67,6 @@ body {
   border: 1px solid black;
   text-align: center;
   padding: 25%;
-  font-family: var(--main-font);
+
   font-size: clamp(20px, 5vw, 5rem);
 }
