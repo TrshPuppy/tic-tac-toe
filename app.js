@@ -134,3 +134,17 @@ modalO.addEventListener("click", () => {
   setPlayerPieces(playerStringChoice);
   modalActual.style.display = "none";
 });
+
+// TO DO:
+//   Fix refreshGame (when restart is clicked, gamboard fills w/ 'undefined')
+//   Add prompt to choose piece when modal closed (when modalClose is clicked,
+//    board fills w/ 'undefined')
+//  Implement player turn functionality (player turn != update w/ new turn)
+//  Add and style modal for win/lose/tie.
+//    Add modals w/ styles + restart buttons
+//    JS: display winner function (w/i checkForWin()?)
+//    JS: function to check for tied board
+
+// Odin optional/extra:
+//  Allow players to input their names.
+//  Create an "unbeatable AI using minmax algorithms"
