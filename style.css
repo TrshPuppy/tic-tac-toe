@@ -16,7 +16,7 @@ body {
   color: white;
   font-family: var(--main-font);
 }
-
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~MODAL~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .modal {
   display: block;
   z-index: 1;
@@ -73,6 +73,12 @@ button:active {
 }
 .modal-gamepiece {
 }
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ MAIN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.main {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
 
 .title {
   text-align: center;
@@ -84,6 +90,7 @@ button:active {
   text-align: center;
   line-height: 25px;
 }
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GAME BOARD ~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .game-board {
   display: grid;
   width: var(--gameboard-dims);
@@ -94,7 +101,6 @@ button:active {
 
   border-radius: 10px;
 }
-
 .game-tile {
   /* width: clamp(100px, 20vw, 150px);
   height: clamp(100px, 40vw, 200px); */
@@ -108,4 +114,14 @@ button:active {
   font-size: clamp(20px, 5vw, 5rem);
   color: blue;
   background-color: rgb(223, 215, 215);
+}
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ BUTTONS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.restart button {
+  padding: 5px;
+  font-size: 0.5rem;
+  background-color: white;
+}
+
+#portfolio {
+  display: none;
 }
