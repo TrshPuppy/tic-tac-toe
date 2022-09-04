@@ -7,7 +7,8 @@
 body {
   --gameboard-dims: clamp(200px, 80vw, 600px);
   --main-font: "Press Start 2P";
-  --modal-actual-bg: rgba(228, 228, 249, 0.6);
+  --modal-actual-bg: rgba(192, 159, 245, 0.6);
+  --box-shadow: 3px 3px 10px #2d2e30;
 
   background: linear-gradient(120deg, pink, blue);
   background-repeat: no-repeat;
@@ -35,24 +36,40 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background-color: pink;
+  justify-content: space-between;
+  background: linear-gradient(120deg, pink, blue);
   width: 300px;
+  height: 250px;
   position: fixed;
   top: 25vh;
   left: calc(50vw - 150px);
-  border: 2px solid black;
+  box-shadow: var(--box-shadow);
   border-radius: 5px;
   z-index: 2;
   text-align: center;
-  color: slategray;
+  color: white;
+  line-height: 35px;
   padding: 10px;
 }
 button {
-  padding: 5px;
+  padding: 20px;
+  margin: 20px;
   font-family: var(--main-font);
+  font-size: 1rem;
   background-color: blue;
   color: white;
+  border-radius: 5px;
+  border: none;
+  box-shadow: var(--box-shadow);
+}
+button:hover {
+  background-color: rgb(192, 159, 245);
+  color: black;
+  cursor: pointer;
+  transform: translateY(3px);
+}
+button:active {
+  transform: translateY(0px);
 }
 .modal-gamepiece {
 }
@@ -72,15 +89,23 @@ button {
   width: var(--gameboard-dims);
   height: var(--gameboard-dims);
   margin: 0 auto;
-  padding-top: 5vh;
+  margin-top: 5vh;
+  box-shadow: var(--box-shadow);
+
+  border-radius: 10px;
 }
 
 .game-tile {
   /* width: clamp(100px, 20vw, 150px);
   height: clamp(100px, 40vw, 200px); */
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
   border: 1px solid black;
+  border-radius: 5px;
   text-align: center;
-  padding: 25%;
-
   font-size: clamp(20px, 5vw, 5rem);
+  color: blue;
+  background-color: rgb(223, 215, 215);
 }
