@@ -1,22 +1,21 @@
 // Globals:
 let gameboard;
+let playerStringChoice = "";
 const gameBoardUI = document.querySelector(".game-board");
 let playerPieces;
 let gameTile;
 let turnNumber = 1;
-let modalClose = document.querySelector(".modal-close");
-let modalActual = document.querySelector(".modal");
+const modalClose = document.querySelector(".modal-close");
+const modalActual = document.querySelector(".modal");
+const modalX = document.querySelector("#choose-X");
+const modalO = document.querySelector("#choose-O");
+const reStartBtn = document.querySelector(".restart");
 
 refreshGame();
 
-// let playerStringChoice = prompt("Choose x or o");
-let playerStringChoice = "x";
-
-setPlayerPieces(playerStringChoice);
-
 // Functions:
 function setPlayerPieces(string) {
-  if (string === "x" || string === "X") {
+  if (string === "x") {
     return (playerPieces = "xo");
   }
   return (playerPieces = "ox");
@@ -115,7 +114,23 @@ function checkForWin(gameBoard) {
   }
 }
 
-// Event Liosteners:
+// Event Listeners:
 modalClose.addEventListener("click", () => {
+  modalActual.style.display = "none";
+});
+
+reStartBtn.addEventListener("click", () => {
+  refreshGame();
+});
+
+modalX.addEventListener("click", () => {
+  playerStringChoice = "x";
+  setPlayerPieces(playerStringChoice);
+  modalActual.style.display = "none";
+});
+
+modalO.addEventListener("click", () => {
+  playerStringChoice = "o";
+  setPlayerPieces(playerStringChoice);
   modalActual.style.display = "none";
 });
