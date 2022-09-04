@@ -102,8 +102,6 @@ button:active {
   border-radius: 10px;
 }
 .game-tile {
-  /* width: clamp(100px, 20vw, 150px);
-  height: clamp(100px, 40vw, 200px); */
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
