@@ -10,4 +10,4 @@ This project taught me a lot about delegating code to functions which can be use
 ### CSS/HTML lessons:
 To come.
 
-Time spent: 11 hours.
+Time spent: 14 hours.
