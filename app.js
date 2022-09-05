@@ -1,11 +1,10 @@
 // Globals:
-let gameboard;
 let playerStringChoice = "";
 const gameBoardUI = document.querySelector(".game-board");
 let playerPieces;
 let gameTile;
 let turnNumber = 0;
-// const modalClose = document.querySelector(".modal-close");
+let gameBoard;
 const modalActual = document.querySelector("#start-modal");
 const winModal = document.querySelector("#win-modal");
 const modalX = document.querySelector("#choose-X");
@@ -58,14 +57,19 @@ function createBoard() {
     gameTile.classList.add("game-tile");
     gameTile.setAttribute("data-number", `${arrayRowIndex},${arrayColIndex}`);
     gameBoardUI.insertAdjacentElement("beforeend", gameTile);
+
     gameTile.addEventListener("click", (e) => {
       if (updateGameBoardArray(arrayRowIndex, arrayColIndex)) {
         updateBoardUI(e);
+
         if (!checkForWin(gameBoard)) {
-          changeTurns();
+          if (!checkForTie(gameBoard)) {
+            changeTurns();
+          } else {
+            displayWinModal(false);
+          }
         } else {
-          displayWinModal();
-          // refreshGame();
+          displayWinModal(true);
         }
       }
     });
@@ -80,21 +84,8 @@ function createNewBoardArray() {
   ];
 }
 
-function refreshGame() {
-  turnNumber = 0;
-  playerPieces = "";
-
-  gameBoard = createNewBoardArray();
-  gameBoardUI.textContent = "";
-
-  createBoard();
-  displayModal(modalActual);
-  changeTurns();
-}
-
 function changeTurns() {
   turnNumber += 1;
-
   counter.innerText = playerPieces[turnNumber & 1];
 }
 
@@ -134,6 +125,17 @@ function checkForWin(gameBoard) {
   }
 }
 
+function checkForTie(gameBoard) {
+  for (let row = 0; row < 3; row++) {
+    for (let col = 0; col < 3; col++) {
+      if (gameBoard[row][col] === "") {
+        return false;
+      }
+    }
+  }
+  return true;
+}
+
 function displayModal(modal) {
   modal.style.display = "block";
 }
@@ -142,15 +144,18 @@ function closeModal(modal) {
   modal.style.display = "none";
 }
 
-function displayWinModal() {
+function displayWinModal(bool) {
   winModal.style.display = "block";
   const winMessage = document.querySelector(".win-message");
-  winMessage.innerText = `Player ${playerPieces[turnNumber & 1]} wins!`;
+  if (bool === false) {
+    winMessage.innerText = `The game is tied!`;
+  } else {
+    winMessage.innerText = `Player ${playerPieces[turnNumber & 1]} wins!`;
+  }
 
   const playAgainBtn = document.querySelector(".play-again");
   playAgainBtn.addEventListener("click", () => {
     closeModal(winModal);
-    // refreshGame();
     startGame();
     displayModal(modalActual);
   });
@@ -158,7 +163,6 @@ function displayWinModal() {
 
 // Event listeners:
 reStartBtn.addEventListener("click", () => {
-  // refreshGame();
   startGame();
 });
 
@@ -177,10 +181,6 @@ modalO.addEventListener("click", () => {
 });
 
 // TO DO:
-// Fix so that starting player is X and game board updates w/ x when tile clicked
-//  Add and style modal for win/lose/tie.
-
-//    JS: function to check for tied board
 
 // Odin optional/extra:
 //  Allow players to input their names.
