@@ -70,8 +70,10 @@ function refreshGame() {
   playerPieces = "";
 
   gameBoard = createNewBoardArray();
+  gameBoardUI.textContent = "";
 
   createBoard();
+  displayModal();
 }
 
 function changeTurns() {
@@ -112,6 +114,10 @@ function checkForWin(gameBoard) {
     }
     return false;
   }
+}
+
+function displayModal() {
+  modalActual.style.display = "block";
 }
 
 // Event Listeners:
