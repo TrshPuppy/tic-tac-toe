@@ -10,6 +10,7 @@ const modalActual = document.querySelector(".modal");
 const modalX = document.querySelector("#choose-X");
 const modalO = document.querySelector("#choose-O");
 const reStartBtn = document.querySelector(".restart");
+const counter = document.querySelector(".counter");
 
 refreshGame();
 
@@ -78,6 +79,8 @@ function refreshGame() {
 
 function changeTurns() {
   turnNumber += 1;
+
+  counter.innerText = playerPieces[turnNumber & 1];
 }
 
 function checkForWin(gameBoard) {
@@ -143,8 +146,6 @@ modalO.addEventListener("click", () => {
 
 // TO DO:
 
-//   Add prompt to choose piece when modal closed (when modalClose is clicked,
-//    board fills w/ 'undefined')
 //  Implement player turn functionality (player turn != update w/ new turn)
 //  Add and style modal for win/lose/tie.
 //    Add modals w/ styles + restart buttons
