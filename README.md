@@ -7,7 +7,5 @@ The requirements for this project included creating a tic-tac-toe game which can
 
 ### JS lessons:
 This project taught me a lot about delegating code to functions which can be used over and over. It also taught me a lot about creating and tracking game states which update base on user input.
-### CSS/HTML lessons:
-To come.
 
-Time spent: 14 hours.
+Time spent: 28 hours.
