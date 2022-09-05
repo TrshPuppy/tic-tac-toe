@@ -9,7 +9,7 @@
   </head>
   <body>
     <div class="main">
-      <div class="modal">
+      <div class="modal" id="start-modal">
         <div class="modal-content">
           <div class="modal-title">Choose your game piece:</div>
           <div class="buttons">
@@ -19,6 +19,15 @@
             <button class="modal-gamepiece" id="choose-O" type="button">
               O
             </button>
+          </div>
+        </div>
+      </div>
+      <div class="modal" id="win-modal">
+        <div class="modal-content">
+          <div class="modal-title">Game Over!</div>
+          <div class="win-message"></div>
+          <div class="buttons">
+            <button class="restart" type="button">Play Again?</button>
           </div>
         </div>
       </div>

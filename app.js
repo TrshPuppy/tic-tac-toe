@@ -6,7 +6,8 @@ let playerPieces;
 let gameTile;
 let turnNumber = 1;
 // const modalClose = document.querySelector(".modal-close");
-const modalActual = document.querySelector(".modal");
+const modalActual = document.querySelector("#start-modal");
+const winModal = document.querySelector("#win-modal");
 const modalX = document.querySelector("#choose-X");
 const modalO = document.querySelector("#choose-O");
 const reStartBtn = document.querySelector(".restart");
@@ -51,7 +52,7 @@ function createBoard() {
         if (!checkForWin(gameBoard)) {
           changeTurns();
         } else {
-          console.log("win!");
+          displayWinModal();
         }
       }
     });
@@ -72,6 +73,7 @@ function refreshGame() {
 
   gameBoard = createNewBoardArray();
   gameBoardUI.textContent = "";
+  winModal.style.display = "none";
 
   createBoard();
   displayModal();
@@ -123,6 +125,13 @@ function displayModal() {
   modalActual.style.display = "block";
 }
 
+function displayWinModal() {
+  winModal.style.display = "block";
+  const winMessage = document.querySelector(".win-message");
+
+  winMessage.innerText = `Player ${playerPieces[turnNumber & 1]} wins!`;
+}
+
 // Event Listeners:
 // modalClose.addEventListener("click", () => {
 //   modalActual.style.display = "none";
@@ -145,8 +154,7 @@ modalO.addEventListener("click", () => {
 });
 
 // TO DO:
-
-//  Implement player turn functionality (player turn != update w/ new turn)
+// Fix so that starting player is X and game board updates w/ x when tile clicked
 //  Add and style modal for win/lose/tie.
 //    Add modals w/ styles + restart buttons
 //    JS: display winner function (w/i checkForWin()?)
