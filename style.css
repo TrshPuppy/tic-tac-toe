@@ -18,12 +18,17 @@ body {
 }
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~MODAL~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .modal {
-  display: none;
   z-index: 1;
   position: fixed;
   width: 100vw;
   height: 100vh;
   background-color: var(--modal-actual-bg);
+}
+#start-modal {
+  display: none;
+}
+#win-modal {
+  display: none;
 }
 /* .modal-close {
   align-self: flex-end;
