@@ -5,7 +5,7 @@ const gameBoardUI = document.querySelector(".game-board");
 let playerPieces;
 let gameTile;
 let turnNumber = 1;
-const modalClose = document.querySelector(".modal-close");
+// const modalClose = document.querySelector(".modal-close");
 const modalActual = document.querySelector(".modal");
 const modalX = document.querySelector("#choose-X");
 const modalO = document.querySelector("#choose-O");
@@ -121,9 +121,9 @@ function displayModal() {
 }
 
 // Event Listeners:
-modalClose.addEventListener("click", () => {
-  modalActual.style.display = "none";
-});
+// modalClose.addEventListener("click", () => {
+//   modalActual.style.display = "none";
+// });
 
 reStartBtn.addEventListener("click", () => {
   refreshGame();
@@ -142,7 +142,7 @@ modalO.addEventListener("click", () => {
 });
 
 // TO DO:
-//   Fix refreshGame (when restart is clicked, gamboard fills w/ 'undefined')
+
 //   Add prompt to choose piece when modal closed (when modalClose is clicked,
 //    board fills w/ 'undefined')
 //  Implement player turn functionality (player turn != update w/ new turn)

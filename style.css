@@ -25,18 +25,18 @@ body {
   height: 100vh;
   background-color: var(--modal-actual-bg);
 }
-.modal-close {
+/* .modal-close {
   align-self: flex-end;
-}
-.modal-close:hover {
+} */
+/* .modal-close:hover {
   color: black;
   cursor: pointer;
-}
+} */
 .modal-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   background: linear-gradient(120deg, pink, blue);
   width: 300px;
   height: 250px;
