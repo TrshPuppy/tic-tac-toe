@@ -1,5 +1,7 @@
 # tic-tac-toe
 
+## Watch my video explainging my process & lessons learned! https://www.youtube.com/watch?v=Y40WAl_pMwM
+## LIVE PREVIEW HERE: https://trshpuppy.github.io/tic-tac-toe/index.html
 ### This is my tic-tac-toe project for the Odin Project (theodinproject.com).
 You can see the details of the project here: https://www.theodinproject.com/lessons/node-path-javascript-tic-tac-toe.
 
